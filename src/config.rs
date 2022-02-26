@@ -1,0 +1,76 @@
+
+
+use clap::Parser;
+use serde::Deserialize;
+
+use std::ffi::OsString;
+use std::fs::File;
+use std::io::{self, Read};
+
+use crate::Error;
+
+
+const DEFAULT_CONFIG_PATH: &str = r"/etc/rust-send/config.toml";
+
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+pub(crate) struct Config {
+    #[serde(default = "default_servername")]
+    pub servername: String,
+}
+impl Config {
+    pub fn load_config() -> Result<Self, Error> {
+        let args = Args::parse();
+
+        let config = if let Some(config_path) = args.config_location {
+            Config::try_from(File::open(config_path)?)?
+        } else {
+            match File::open(&DEFAULT_CONFIG_PATH) {
+                Ok(file) => {
+                    Config::try_from(file)?
+                },
+                Err(err) if err.kind() == io::ErrorKind::NotFound => {
+                    Config::default()
+                },
+                Err(err) => Err(err)?,
+            }
+        };
+
+        Ok(config)
+    }
+}
+impl Default for Config {
+    fn default() -> Self {
+        Config {
+            servername: default_servername(),
+        }
+    }
+}
+impl TryFrom<File> for Config {
+    type Error = Error;
+
+    fn try_from(mut file: File) -> Result<Self, Error> {
+        let mut buf = Vec::new();
+        file.read_to_end(&mut buf)?;
+        Ok(toml::from_slice(&buf)?)
+    }
+}
+
+
+#[derive(Parser)]
+#[clap(name = "rust-send")]
+#[clap(author = "Simeon Ricking <simeon.ricking@simusense.eu>")]
+#[clap(about = "File-sharing server", long_about = "A file sharing server based on Firefox-Send")]
+struct Args {
+    /// Path to the configuration file
+    #[clap(name = "config")]
+    #[clap(short, long)]
+    #[clap(help = "Path to the configuration file")]
+    config_location: Option<OsString>,
+}
+
+
+fn default_servername() -> String {
+    String::from("example.com")
+}
