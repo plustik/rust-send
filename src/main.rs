@@ -1,14 +1,18 @@
 
-
+use actix_web::{App, HttpServer};
 use toml::de;
 
 use std::fmt;
 use std::io;
 
 mod config;
+mod routes;
+
+use config::Config;
 
 
-fn main() {
+#[actix_web::main]
+async fn main() {
     let config = match config::Config::load_config() {
         Ok(c) => c,
         Err(Error::IO(err)) => {
@@ -23,7 +27,23 @@ fn main() {
             panic!("Unexpected Error type");
         },
     };
-    println!("{}", config.servername);
+
+    if let Err(e) = run_webserver(&config).await {
+        println!("Error while running webserver: {}", e);
+    }
+}
+
+
+async fn run_webserver(config: &Config) -> Result<(), Error> {
+    HttpServer::new(|| {
+        App::new()
+            .service(routes::pages::index)
+    })
+    .bind(config.local_socket_addr)?
+    .run()
+    .await?;
+
+    Ok(())
 }
 
 

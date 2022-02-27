@@ -6,6 +6,7 @@ use serde::Deserialize;
 use std::ffi::OsString;
 use std::fs::File;
 use std::io::{self, Read};
+use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 
 use crate::Error;
 
@@ -18,6 +19,8 @@ const DEFAULT_CONFIG_PATH: &str = r"/etc/rust-send/config.toml";
 pub(crate) struct Config {
     #[serde(default = "default_servername")]
     pub servername: String,
+    #[serde(default = "default_local_socket_addr")]
+    pub local_socket_addr: SocketAddr,
 }
 impl Config {
     pub fn load_config() -> Result<Self, Error> {
@@ -44,6 +47,7 @@ impl Default for Config {
     fn default() -> Self {
         Config {
             servername: default_servername(),
+            local_socket_addr: default_local_socket_addr(),
         }
     }
 }
@@ -73,4 +77,7 @@ struct Args {
 
 fn default_servername() -> String {
     String::from("example.com")
+}
+fn default_local_socket_addr() -> SocketAddr {
+    SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), 8080)
 }
