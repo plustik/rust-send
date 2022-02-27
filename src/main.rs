@@ -1,5 +1,6 @@
 
-use actix_web::{App, HttpServer};
+use actix_web::{App, HttpServer, middleware::Logger};
+use simplelog::{LevelFilter, SimpleLogger};
 use toml::de;
 
 use std::fmt;
@@ -28,6 +29,10 @@ async fn main() {
         },
     };
 
+    if let Err(err) = SimpleLogger::init(LevelFilter::Info, simplelog::Config::default()) {
+        println!("Could not initialize logger: {}", err);
+    }
+
     if let Err(e) = run_webserver(&config).await {
         println!("Error while running webserver: {}", e);
     }
@@ -37,6 +42,7 @@ async fn main() {
 async fn run_webserver(config: &Config) -> Result<(), Error> {
     HttpServer::new(|| {
         App::new()
+            .wrap(Logger::default())
             .service(routes::pages::index)
     })
     .bind(config.local_socket_addr)?
