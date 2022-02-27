@@ -12,13 +12,13 @@
         }"
       >
         <svg class="w-10 h-10 link-blue">
-          <use xlink:href="/{{ PATH('addfiles.svg') }}#plus" />
+          <use xlink:href="/{{ PATHS['addfiles.svg'] }}#plus" />
         </svg>
         <div class="pt-6 pb-2 text-center text-lg font-bold tracking-wide">
-          {{ TRANSLATE('dragAndDropFiles') }}
+          {{ TEXTS['dragAndDropFiles'] }}
         </div>
         <div class="pb-6 text-center text-base">
-          {{ TRANSLATE('orClickWithSize') }} {{ MAX_SIZE }}
+          {{ TEXTS['orClickWithSize'] }} {{ MAX_SIZE }}
         </div>
         <input
           id="file-upload"
@@ -38,9 +38,9 @@
           for="file-upload"
           role="button"
           class="btn rounded-lg flex items-center mt-4"
-          title="{{ TRANSLATE('addFilesButton') }} {{ MAX_SIZE }}"
+          title="{{ TEXTS['addFilesButton'] }} {{ MAX_SIZE }}"
         >
-          {{ TRANSLATE('addFilesButton') }}
+          {{ TEXTS['addFilesButton'] }}
         </label>
       </send-upload-area>
     </div>
@@ -50,10 +50,10 @@
       >
         <div class="mt-12 flex flex-col h-full">
           <h1 class="text-3xl font-bold md:pb-2">
-            {{ TRANSLATE('introTitle') }}
+            {{ TEXTS['introTitle'] }}
           </h1>
           <p class="max-w-sm leading-loose mt-6 md:mt-2 md:pr-14">
-            {{ TRANSLATE('introDescription') }} 
+            {{ TEXTS['introDescription'] }} 
           </p>
         </div>
       </send-intro>

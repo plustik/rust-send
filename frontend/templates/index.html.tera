@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ LOCALE }}">
   {% include "head.html" %}
-  {% include "noscript.html %}
+  {% include "noscript.html" %}
   <body
     class="flex flex-col items-center font-sans md:h-screen md:bg-grey-10 dark:bg-black"
   >
-  {% include "header.html.tera" %}
-  {% include "home.html.tera" %}
-  {% include "footer.html.tera" %}
+  {% include "header.html" %}
+  {% include "home.html" %}
+  {% include "footer.html" %}
   </body>
   {% include "initScript.js" %}
 </html>

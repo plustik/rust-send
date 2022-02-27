@@ -1,7 +1,7 @@
   <head>
     <title>{{ TITLE }}</title>
     <base href="/" />
-    <meta name="robots" content="{% ROBOTS %},noarchive" />
+    <meta name="robots" content="{{ ROBOTS }},noarchive" />
     <meta name="google" content="nositelinkssearchbox" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8" />
@@ -15,11 +15,11 @@
     <meta name="twitter:card" content="summary" />
     <meta
       property="og:image"
-      content="{{ BASEURL }}/{{ PATH('send-fb.jpg') }}"
+      content="{{ BASEURL }}/{{ PATHS['send-fb.jpg'] }}"
     />
     <meta
       name="twitter:image"
-      content="{{ BASEURL }}/{{ PATH('send-twitter.jpg') }}"
+      content="{{ BASEURL }}/{{ PATHS['send-twitter.jpg'] }}"
     />
     <meta property="og:url" content="{{ BASEURL }}" />
     <meta name="theme-color" content="#220033" />
@@ -30,29 +30,29 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ PATH('app.css') }}"
+      href="{{ PATHS['app.css'] }}"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="{{ PATH('apple-touch-icon.png') }}"
+      href="{{ PATHS['apple-touch-icon.png'] }}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="{{ PATH('favicon-32x32.png') }}"
+      href="{{ PATHS['favicon-32x32.png'] }}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="{{ PATH('favicon-16x16.png') }}"
+      href="{{ PATHS['favicon-16x16.png'] }}"
     />
     <link
       rel="mask-icon"
-      href="{{ PATH('safari-pinned-tab.svg') }}"
+      href="{{ PATHS['safari-pinned-tab.svg'] }}"
       color="#838383"
     />
-    <script defer src="{{ PATH('app.js') }}"></script>
+    <script defer src="{{ PATHS['app.js'] }}"></script>
   </head>

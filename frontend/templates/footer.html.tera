@@ -4,7 +4,7 @@
   <ul
     class="flex flex-col md:flex-row items-start md:items-center md:justify-start"
   >
-    <li class="m-2">{{ TRANSLATE('footerText') }}</li>
+    <li class="m-2">{{ TEXTS['footerText'] }}</li>
   </ul>
   <ul
     class="flex flex-col md:flex-row items-start md:items-center md:justify-end"
@@ -12,28 +12,28 @@
     {% if DONATE_URL %}
     <li class="m-2">
       <a href="{{ FOOTER_DONATE_URL }}" target="_blank">
-        {{ TRANSLATE('footerLinkDonate') }}
+        {{ TEXTS['footerLinkDonate'] }}
       </a>
     </li>
     {% endif %}
     {% if CLI_URL %}
     <li class="m-2">
       <a href="{{ FOOTER_CLI_URL }}" target="_blank">
-        {{ TRANSLATE('footerLinkCli') }}
+        {{ TEXTS['footerLinkCli'] }}
       </a>
     </li>
     {% endif %}
     {% if DMCA_URL %}
     <li class="m-2">
       <a href="{{ FOOTER_DMCA_URL }}" target="_blank">
-        {{ TRANSLATE('footerLinkDmca') }}
+        {{ TEXTS['footerLinkDmca'] }}
       </a>
     </li>
     {% endif %}
     {% if SOURCE_URL %}
     <li class="m-2">
       <a href="{{ FOOTER_SOURCE_URL }}" target="_blank">
-        {{ TRANSLATE('footerLinkSource') }}
+        {{ TEXTS['footerLinkSource'] }}
       </a>
     </li>
     {% endif %}

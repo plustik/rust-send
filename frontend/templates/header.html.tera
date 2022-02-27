@@ -3,11 +3,11 @@
 >
   <a class="flex flex-row items-center" href="/">
     <img
-        alt="{{ TRANSLATION('title') }}"
-      src="{{ PATH('icon.svg') }}"
+        alt="{{ TEXTS['title'] }}"
+      src="{{ PATHS['icon.svg'] }}"
     />
     <svg viewBox="66 0 340 64" class="w-48 md:w-64">
-      <use xlink:href="{{ PATH('wordmark.svg') }}#logo" />
+      <use xlink:href="{{ PATHS['wordmark.svg'] }}#logo" />
     </svg>
   </a>
   {% include "account.html" %}
