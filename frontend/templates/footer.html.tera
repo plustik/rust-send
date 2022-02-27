@@ -1,0 +1,41 @@
+<footer
+  class="flex flex-col md:flex-row items-start w-full flex-none self-start p-6 md:p-8 font-medium text-xs text-grey-60 dark:text-grey-40 md:items-center justify-between"
+>
+  <ul
+    class="flex flex-col md:flex-row items-start md:items-center md:justify-start"
+  >
+    <li class="m-2">{{ TRANSLATE('footerText') }}</li>
+  </ul>
+  <ul
+    class="flex flex-col md:flex-row items-start md:items-center md:justify-end"
+  >
+    {% if DONATE_URL %}
+    <li class="m-2">
+      <a href="{{ FOOTER_DONATE_URL }}" target="_blank">
+        {{ TRANSLATE('footerLinkDonate') }}
+      </a>
+    </li>
+    {% endif %}
+    {% if CLI_URL %}
+    <li class="m-2">
+      <a href="{{ FOOTER_CLI_URL }}" target="_blank">
+        {{ TRANSLATE('footerLinkCli') }}
+      </a>
+    </li>
+    {% endif %}
+    {% if DMCA_URL %}
+    <li class="m-2">
+      <a href="{{ FOOTER_DMCA_URL }}" target="_blank">
+        {{ TRANSLATE('footerLinkDmca') }}
+      </a>
+    </li>
+    {% endif %}
+    {% if SOURCE_URL %}
+    <li class="m-2">
+      <a href="{{ FOOTER_SOURCE_URL }}" target="_blank">
+        {{ TRANSLATE('footerLinkSource') }}
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</footer>

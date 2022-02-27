@@ -1,0 +1,6 @@
+<script nonce="{{ CSPNonce }}">
+  var LIMITS = {{ LIMITS | json_encode() | safe }};
+  var WEB_UI = {{ WEB_UI | json_encode() | safe }};
+  var DEFAULTS = {{ DEFAULTS | json_encode() | safe }};
+  var downloadMetadata = {};
+</script>
