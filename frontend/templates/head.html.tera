@@ -1,7 +1,7 @@
   <head>
     <title>{{ TITLE }}</title>
     <base href="/" />
-    <meta name="robots" content="{{ ROBOTS }},noarchive" />
+    <meta name="robots" content="all,noarchive" />
     <meta name="google" content="nositelinkssearchbox" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8" />
@@ -9,17 +9,17 @@
 
     <meta property="og:title" content="{{ TITLE }}" />
     <meta name="twitter:title" content="{{ TITLE }}" />
-    <meta name="description" content="{{ DESCRIPTION }}" />
-    <meta property="og:description" content="{{ DESCRIPTION }}" />
-    <meta name="twitter:description" content="{{ DESCRIPTION }}" />
+    <meta name="description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever." />
+    <meta property="og:description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever." />
+    <meta name="twitter:description" content="Encrypt and send files with a link that automatically expires to ensure your important documents don’t stay online forever." />
     <meta name="twitter:card" content="summary" />
     <meta
       property="og:image"
-      content="{{ BASEURL }}/{{ PATHS['send-fb.jpg'] }}"
+      content="{{ BASEURL }}{{ PATHS['send-fb.jpg'] }}"
     />
     <meta
       name="twitter:image"
-      content="{{ BASEURL }}/{{ PATHS['send-twitter.jpg'] }}"
+      content="{{ BASEURL }}{{ PATHS['send-twitter.jpg'] }}"
     />
     <meta property="og:url" content="{{ BASEURL }}" />
     <meta name="theme-color" content="#220033" />

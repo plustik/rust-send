@@ -1,6 +1,6 @@
   <noscript>
     <div class="noscript">
-      <h2>{{ PATHS['javascriptRequired'] }}</h2>
+      <h2>{{ TEXTS['javascriptRequired'] }}</h2>
       <p>
         <a
           class="link"
