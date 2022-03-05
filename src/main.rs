@@ -28,9 +28,6 @@ async fn main() {
             println!("Could not parse TOML of config file: {}", err);
             return;
         }
-        Err(_) => {
-            panic!("Unexpected Error type");
-        }
     };
 
     if let Err(err) = SimpleLogger::init(LevelFilter::Info, simplelog::Config::default()) {
@@ -76,7 +73,6 @@ impl std::error::Error for Error {
         match self {
             IO(inner) => Some(inner),
             ConfigParsing(inner) => Some(inner),
-            _ => None,
         }
     }
 }

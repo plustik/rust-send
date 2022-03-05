@@ -5,7 +5,7 @@ pub mod pages;
 use crate::config::Config;
 
 pub(crate) fn create_path_map(_config: impl AsRef<Config>) -> HashMap<&'static str, String> {
-    const STATIC_ASSETS: [&'static str; 11] = [
+    const STATIC_ASSETS: [&str; 11] = [
         "addfiles.svg",
         "app.css",
         "app.js",

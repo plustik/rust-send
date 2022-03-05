@@ -1,5 +1,3 @@
-
-
 use clap::Parser;
 use serde::Deserialize;
 
@@ -10,9 +8,7 @@ use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 
 use crate::Error;
 
-
 const DEFAULT_CONFIG_PATH: &str = r"/etc/rust-send/config.toml";
-
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -30,13 +26,9 @@ impl Config {
             Config::try_from(File::open(config_path)?)?
         } else {
             match File::open(&DEFAULT_CONFIG_PATH) {
-                Ok(file) => {
-                    Config::try_from(file)?
-                },
-                Err(err) if err.kind() == io::ErrorKind::NotFound => {
-                    Config::default()
-                },
-                Err(err) => Err(err)?,
+                Ok(file) => Config::try_from(file)?,
+                Err(err) if err.kind() == io::ErrorKind::NotFound => Config::default(),
+                Err(err) => return Err(err.into()),
             }
         };
 
@@ -61,11 +53,13 @@ impl TryFrom<File> for Config {
     }
 }
 
-
 #[derive(Parser)]
 #[clap(name = "rust-send")]
 #[clap(author = "Simeon Ricking <simeon.ricking@simusense.eu>")]
-#[clap(about = "File-sharing server", long_about = "A file sharing server based on Firefox-Send")]
+#[clap(
+    about = "File-sharing server",
+    long_about = "A file sharing server based on Firefox-Send"
+)]
 struct Args {
     /// Path to the configuration file
     #[clap(name = "config")]
@@ -73,7 +67,6 @@ struct Args {
     #[clap(help = "Path to the configuration file")]
     config_location: Option<OsString>,
 }
-
 
 fn default_servername() -> String {
     String::from("example.com")

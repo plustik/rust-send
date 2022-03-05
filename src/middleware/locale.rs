@@ -31,7 +31,7 @@ impl LocaleFactory {
             Ok(r) => r,
             Err(err) => {
                 warn!("Could not read directory: {}", err);
-                return Err(err)?;
+                return Err(err.into());
             }
         };
         for entry in reading.filter_map(|e| {
