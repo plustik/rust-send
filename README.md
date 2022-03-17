@@ -1,21 +1,16 @@
-# [![Send](./assets/icon-64x64.png)](https://gitlab.com/timvisee/send/) Send
+# [![Send](./assets/icon-64x64.png)](https://github.com/plustik/rust-send/) Rust-Send
 
-[![Build status on GitLab CI][gitlab-ci-master-badge]][gitlab-ci-link]
-[![Latest release][release-badge]][release-link]
 [![Docker image][docker-image-badge]][docker-image-link]
 [![Project license][repo-license-badge]](LICENSE)
 
-[docker-image-badge]: https://img.shields.io/badge/docker-latest-blue.svg
-[docker-image-link]: https://gitlab.com/timvisee/send/container_registry/eyJuYW1lIjoidGltdmlzZWUvc2VuZCIsInRhZ3NfcGF0aCI6Ii90aW12aXNlZS9zZW5kL3JlZ2lzdHJ5L3JlcG9zaXRvcnkvMTQxODUwNC90YWdzP2Zvcm1hdD1qc29uIiwiaWQiOjE0MTg1MDQsImNsZWFudXBfcG9saWN5X3N0YXJ0ZWRfYXQiOm51bGx9
-[gitlab-ci-link]: https://gitlab.com/timvisee/send/pipelines
-[gitlab-ci-master-badge]: https://gitlab.com/timvisee/send/badges/master/pipeline.svg
-[release-badge]: https://img.shields.io/github/v/tag/timvisee/send
-[release-link]: https://gitlab.com/timvisee/send/-/tags
-[repo-license-badge]: https://img.shields.io/github/license/timvisee/send.svg
+This is an ongoing effort to rewrite the backend of Mozilla's [Firefox Send][mozilla-send] in Rust with
+the long-term goal of adding additional features like authentication and user accounts.
+Mozilla discontinued Send; this project is based on [this fork][https://gitlab.com/timvisee/send/], which
+is a community effort to keep Send up-to-date and alive.
 
-A fork of Mozilla's [Firefox Send][mozilla-send].
-Mozilla discontinued Send, this fork is a community effort to keep the project
-up-to-date and alive.
+**Right now the new Rust backend isn't working yet.**
+
+---
 
 - Forked [at][fork-commit] Mozilla's last publicly hosted version
 - _Mozilla_ & _Firefox_ branding [is][remove-branding-pr] removed so you can legally self-host
